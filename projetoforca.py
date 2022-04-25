@@ -8,7 +8,10 @@ letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
 alfabeto = list("abdcefghijklmnopqrstuvwxyz")
+<<<<<<< HEAD
 
+=======
+>>>>>>> cd8e27729b5338dcd57e662043e6cf540f66a258
 def menu():
 	print('''
 	 >>>>>>>>>>>>         Uniesp         >>>>>>>>>>>>>>
@@ -41,6 +44,13 @@ categoria = input('Por favor, escolha sua categoria: ')
 palavrasFrutas = (random.choice(palavrasFrutas))
 palavrasCores = (random.choice(palavrasCores))
 palavrasAnimais = (random.choice(palavrasAnimais))
+<<<<<<< HEAD
+=======
+
+
+
+print("A palavra contem essas letras abaixo:")
+>>>>>>> cd8e27729b5338dcd57e662043e6cf540f66a258
 
 print("\nA palavra é:")
 
@@ -62,6 +72,13 @@ for letra in palavrasFrutas:
 		break;
 
 
+<<<<<<< HEAD
 print(f"\n{palavra}")
+=======
+
+
+
+print("A palavra é:", palavra)
+>>>>>>> cd8e27729b5338dcd57e662043e6cf540f66a258
 
 

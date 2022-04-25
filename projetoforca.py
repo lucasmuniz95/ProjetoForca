@@ -66,23 +66,6 @@ for letra in palavrasFrutas:
 
 
 
-#while True:
-#	palpite = input("\n\nDigite seu palpite ou 'SAIR' para sair do programa! ").lower()
-#	if palpite == "sair":
-#		break
-#	elif palpite not in alfabeto or palpite == '':
-#		print("Hein!? Fala direito! Isso não é uma letra!")
-#		continue
-#	elif palpite in tentativas:
-#		print("Você é desmemoriado ou o quê!? Você já tentou essa letra. Tente outra!")
-#		continue
-#	tentativas.append(palpite)
-#	if palpite in palavra:
-#		print("ACERTÔ, MIZERAVI!")
-#	else:
-#		print("Errou feio, errou rude!")
-
-
 
 print("A palavra é:", palavra)
 

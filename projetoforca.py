@@ -8,8 +8,6 @@ letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
 alfabeto = list("abdcefghijklmnopqrstuvwxyz")
-#print('Olá, seja bem vindo!\n')
-#print('Esse é o nosso jogo da forca')
 def menu():
 	print('''
 	 >>>>>>>>>>>>         Uniesp         >>>>>>>>>>>>>>
@@ -42,10 +40,6 @@ categoria = input('Por favor, escolha sua categoria: ')
 palavrasFrutas = (random.choice(palavrasFrutas))
 palavrasCores = (random.choice(palavrasCores))
 palavrasAnimais = (random.choice(palavrasAnimais))
-#catFrutas = "1"
-#catCores = "2"
-# catAnimais = "3"
-# sair = 's'
 
 
 

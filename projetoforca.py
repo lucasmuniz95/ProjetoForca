@@ -8,7 +8,7 @@ letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
 categoria = ""
-alfabeto = list("abcdefghijlmnopqrtuvxz")
+alfabeto = list("abcdefghijlmnopqrstuvxz")
 
 def menuCategorias():
 	print('''
@@ -59,10 +59,10 @@ while (categoria != "s"):
 	elif (categoria == "3"):
 		categoria = "Animais"
 	elif (categoria == "s"):
-		print("Jogo Finalizado!")
+		print("\nJogo Finalizado!")
 		break
 	else:
-		print("Categoria Invalida")
+		print("\nCategoria Invalida")
 		menuCategorias()
 		continue
 
@@ -82,16 +82,15 @@ while (categoria != "s"):
 		print('_ ', end="")
 
 
-	while letrasDigitadas in palavra:
+	while True:
 		letrasDigitadas = input("\n\nDigite a letra que você acha que tem na palavra: ")
-
-		if letrasDigitadas.upper() in alfabeto:
-			letrasDigitadas = x + 1
+		if (letrasDigitadas == alfabeto):
+			print(palavra + letra)
 			print("\nAs letras que você já digitou foram: ", letrasDigitadas, ",")
 		else:
 			print("\nVocê precisa digitar uma letra")
+			continue
 
-		for letrasDigitadas in palavra
 
 
 

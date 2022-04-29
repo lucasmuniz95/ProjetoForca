@@ -7,8 +7,19 @@ tentativas = 5
 letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
-alfabeto = list("abdcefghijklmnopqrstuvwxyz")
+categoria = ""
+alfabeto = list("abcdefghijlmnopqrtuvxz")
 
+def menuCategorias():
+	print('''
+	Digite [1] para Frutas 
+	Digite [2] para Cores 
+	Digite [3] para Animais
+	
+	Se quiser sair do jogo              
+	
+	Digite [S] para Sair 
+				''')
 
 def menu():
 	print('''
@@ -37,45 +48,50 @@ def menu():
 	####################################################       
 			''')
 menu()
-categoria = input('Por favor, escolha sua categoria: ')
-
-palavrasFrutas = (random.choice(palavrasFrutas))
-palavrasCores = (random.choice(palavrasCores))
-palavrasAnimais = (random.choice(palavrasAnimais))
 
 
-
-
-print("A palavra contem essas letras abaixo:")
-
-
-print("\nA palavra é:")
-
-for letra in palavrasFrutas:
-	if (categoria == "1"):
-		palavra = palavrasFrutas
-		print('-', end="")
-	elif (categoria == "2"):
-		palavra = palavrasCores
-		print('-', end="")
+while (categoria != "s"):
+	categoria = input('\nPor favor, escolha sua categoria: ').lower() .strip()
+	if (categoria == '1'):
+		categoria = "Frutas"
+	elif (categoria == '2'):
+		categoria = "Cores"
 	elif (categoria == "3"):
-		palavra = palavrasAnimais
-		print('-', end="")
+		categoria = "Animais"
 	elif (categoria == "s"):
-		print("Jogo Finalizado")
-		break;
+		print("Jogo Finalizado!")
+		break
 	else:
-		print("Você não escolheu nenhuma categoria")
-		break;
+		print("Categoria Invalida")
+		menuCategorias()
+		continue
 
 
+	print('\nA categoria escolhida foi:',categoria)
+	print('\nA palavra é: ',end="")
 
-print(f"\n{palavra}")
+	palavra = "nao selecionada"
+	if (categoria == "Frutas"):
+		palavra = (random.choice(palavrasFrutas))
+	elif (categoria == "Cores"):
+		palavra = (random.choice(palavrasCores))
+	elif (categoria == "Animais"):
+		palavra = (random.choice(palavrasAnimais))
+
+	for letra in palavra:
+		print('_ ', end="")
 
 
+	while letrasDigitadas in palavra:
+		letrasDigitadas = input("\n\nDigite a letra que você acha que tem na palavra: ")
 
+		if letrasDigitadas.upper() in alfabeto:
+			letrasDigitadas = x + 1
+			print("\nAs letras que você já digitou foram: ", letrasDigitadas, ",")
+		else:
+			print("\nVocê precisa digitar uma letra")
 
-print("A palavra é:", palavra)
+		for letrasDigitadas in palavra
 
 
 

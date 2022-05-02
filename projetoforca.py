@@ -1,14 +1,137 @@
 import random
 palavrasFrutas = ["uva", "maça", "pera", "melancia", "laranja"]
 palavrasCores = ["branco", "azul", "preto", "amarelo", "vermelho", "roxo"]
-palavrasAnimais = ["cachorro", "gato", "cavalo", "vaca", "galinha" ]
-chances = 0
+palavrasAnimais = ["cachorro", "gato", "cavalo", "vaca", "galinha"]
 tentativas = 5
 letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
 categoria = ""
 alfabeto = list("abcdefghijlmnopqrstuvxz")
+
+
+def bonecoForcaCompleto():
+	print('''
+	
+	################################
+	##                            ##
+	##                            ##                             
+	##                         ##########
+	##                            *****
+	##                         *         *             
+	##                        *           *
+	##                         *         *
+	##                            *****
+	##                              *
+	##                            *****
+	##                          *   *    *
+	##                        *     *      *
+	##                      *       *        *
+	##                              *
+	##                            ******
+	##                          *         *
+	##                        *             * 
+	##                      *                 *      
+	
+	''')
+
+def bonecoforca4():
+	print('''
+
+		################################
+		##                            ##
+		##                            ##                             
+		##                         ##########
+		##                            *****
+		##                         *         *             
+		##                        *           *
+		##                         *         *
+		##                            *****
+		##                              *
+		##                            *****
+		##                              *    *
+		##                              *      *
+		##                              *        *
+		##                              *
+		##                            ******
+		##                          *         *
+		##                        *             * 
+		##                      *                 *      
+
+		''')
+
+def bonecoforca3():
+	print('''
+
+		################################
+		##                            ##
+		##                            ##                             
+		##                         ##########
+		##                            *****
+		##                         *         *             
+		##                        *           *
+		##                         *         *
+		##                            *****
+		##                              *
+		##                            *****
+		##                              *    
+		##                              *      
+		##                              *        
+		##                              *
+		##                            ******
+		##                          *         *
+		##                        *             * 
+		##                      *                 *      
+		''')
+
+def bonecoforca2():
+	print('''
+
+		################################
+		##                            ##
+		##                            ##                             
+		##                         ##########
+		##                            *****
+		##                         *         *             
+		##                        *           *
+		##                         *         *
+		##                            *****
+		##                              *
+		##                            *****
+		##                              *    
+		##                              *      
+		##                              *        
+		##                              *
+		##                            ******
+		##                                    *
+		##                                      * 
+		##                                        *      
+		''')
+
+def bonecoforca1():
+	print('''
+
+		################################
+		##                            ##
+		##                            ##                             
+		##                         ##########
+		##                            *****
+		##                         *         *             
+		##                        *           *
+		##                         *         *
+		##                            *****
+		##                              
+		##                           
+		##                                  
+		##                                    
+		##                                     
+		##                              
+		##                            
+		##                          
+		##                        
+		##                            
+		''')
+
 
 def menuCategorias():
 	print('''
@@ -81,15 +204,37 @@ while (categoria != "s"):
 	for letra in palavra:
 		print('_ ', end="")
 
-
-	while True:
-		letrasDigitadas = input("\n\nDigite a letra que você acha que tem na palavra: ")
-		if (letrasDigitadas == alfabeto):
-			print(palavra + letra)
-			print("\nAs letras que você já digitou foram: ", letrasDigitadas, ",")
+	while (categoria != "s"):
+		letrasTentadas = str(input("\n\nDigite a letra que você acha que tem na palavra: "))
+		letrasDigitadas.append(letrasTentadas)
+		palavraSecreta = list(palavra)
+		if letrasTentadas in palavra:
+			print("_ ", end="")
+			print("\nParabéns, você acertou uma letra")
+			print("\nAs letras que você já digitou foram: ", letrasDigitadas)
+			print(palavra)
 		else:
-			print("\nVocê precisa digitar uma letra")
-			continue
+			print("\nNão tem essa letra na palavra :/")
+			print("\nAs letras que você já digitou foram: ", letrasDigitadas)
+			tentativas -= 1
+			print("\nVocê ainda tem ", tentativas, "tentativas")
+
+		if (letrasTentadas != str):
+			print("Digite uma letra")
+
+		if (tentativas == 0):
+			bonecoForcaCompleto()
+			print("Fim de Jogo")
+			print("A palavra era: ", palavra)
+			categoria = "s"
+		elif (tentativas == 1):
+			bonecoforca4()
+		elif (tentativas == 2):
+			bonecoforca3()
+		elif (tentativas == 3):
+			bonecoforca2()
+		elif (tentativas == 4):
+			bonecoforca1()
 
 
 

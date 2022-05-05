@@ -1,13 +1,16 @@
 import random
-palavrasFrutas = ["uva", "maça", "pera", "melancia", "laranja"]
-palavrasCores = ["branco", "azul", "preto", "amarelo", "vermelho", "roxo"]
-palavrasAnimais = ["cachorro", "gato", "cavalo", "vaca", "galinha"]
+import numpy as np
+palavrasFrutas = ['abacate', 'abacaxi', 'banana', 'goiaba', 'laranja', 'manga', 'maça', 'melancia', 'pera', 'tangerina', 'uva']
+palavrasCores = ['azul', 'verde', 'vermelho', 'preto', 'amarelo', 'violeta', 'laranja', 'branco', 'Rosa', 'marrom']
+palavrasAnimais = ['cachorro', 'gato', 'cavalo', 'vaca', 'galinha', 'peixe', 'coelho', 'papagaio']
 tentativas = 5
 letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
 categoria = ""
-alfabeto = list("abcdefghijlmnopqrstuvxz")
+alfabeto = list("abcdefghijklmnopqrstuvwxyz")
+letrasChutadas = ""
+palavra = ""
 
 
 def bonecoForcaCompleto():
@@ -49,14 +52,14 @@ def bonecoforca4():
 		##                            *****
 		##                              *
 		##                            *****
-		##                              *    *
-		##                              *      *
-		##                              *        *
+		##                         *    *    *
+		##                       *      *      *
+		##                     *        *        *
 		##                              *
 		##                            ******
-		##                          *         *
-		##                        *             * 
-		##                      *                 *      
+		##                                    *
+		##                                      * 
+		##                                        *      
 
 		''')
 
@@ -73,15 +76,15 @@ def bonecoforca3():
 		##                         *         *
 		##                            *****
 		##                              *
-		##                            *****
-		##                              *    
-		##                              *      
-		##                              *        
+		##                            ***** 
+		##                         *    *   * 
+		##                       *      *     * 
+		##                     *        *       * 
 		##                              *
 		##                            ******
-		##                          *         *
-		##                        *             * 
-		##                      *                 *      
+		##                                   
+		##                                      
+		##                                     
 		''')
 
 def bonecoforca2():
@@ -97,15 +100,15 @@ def bonecoforca2():
 		##                         *         *
 		##                            *****
 		##                              *
-		##                            *****
-		##                              *    
-		##                              *      
-		##                              *        
+		##                            ***** 
+		##                              *   * 
+		##                              *     * 
+		##                              *       * 
 		##                              *
 		##                            ******
-		##                                    *
-		##                                      * 
-		##                                        *      
+		##                                   
+		##                                      
+		##                                             
 		''')
 
 def bonecoforca1():
@@ -191,7 +194,7 @@ while (categoria != "s"):
 
 
 	print('\nA categoria escolhida foi:',categoria)
-	print('\nA palavra é: ',end="")
+
 
 	palavra = "nao selecionada"
 	if (categoria == "Frutas"):
@@ -201,41 +204,54 @@ while (categoria != "s"):
 	elif (categoria == "Animais"):
 		palavra = (random.choice(palavrasAnimais))
 
-	for letra in palavra:
-		print('_ ', end="")
+	print(palavra, end="")
+
 
 	while (categoria != "s"):
-		letrasTentadas = str(input("\n\nDigite a letra que você acha que tem na palavra: "))
-		letrasDigitadas.append(letrasTentadas)
-		palavraSecreta = list(palavra)
-		if letrasTentadas in palavra:
-			print("_ ", end="")
-			print("\nParabéns, você acertou uma letra")
-			print("\nAs letras que você já digitou foram: ", letrasDigitadas)
-			print(palavra)
+		print('\nA palavra é: ', end="")
+		for letra in palavra:
+			if letra in letrasAcertadas:
+				print(" ",letra, " ", end="")
+			else:
+				print(' _ ', end="")
+		letrasChutadas = input("\n\nDigite a letra que você acha que tem na palavra: ") .lower()
+		if letrasChutadas in letrasDigitadas:
+			print("Você já digitou essa letra")
 		else:
+			letrasDigitadas.append(letrasChutadas)
+		print("Letras já digitadas: ", letrasDigitadas)
+		if (letrasChutadas in alfabeto) and (letrasChutadas in palavra):
+			letrasAcertadas.append(letrasChutadas)
+			print("\nVocê acertou uma letra\n")
+			acertou = True
+			for letra in palavra:
+				if letra not in letrasAcertadas:
+					acertou = False
+			if acertou:
+				print("\nParabéns, você fugiu da forca e ganhou o jogo!!")
+				print("\nA palavra era : ", palavra)
+				categoria = "s"
+		elif (letrasChutadas in alfabeto) and (letrasChutadas not in palavra):
 			print("\nNão tem essa letra na palavra :/")
-			print("\nAs letras que você já digitou foram: ", letrasDigitadas)
 			tentativas -= 1
 			print("\nVocê ainda tem ", tentativas, "tentativas")
-
-		if (letrasTentadas != str):
-			print("Digite uma letra")
-
-		if (tentativas == 0):
-			bonecoForcaCompleto()
-			print("Fim de Jogo")
-			print("A palavra era: ", palavra)
-			categoria = "s"
-		elif (tentativas == 1):
-			bonecoforca4()
-		elif (tentativas == 2):
-			bonecoforca3()
-		elif (tentativas == 3):
-			bonecoforca2()
-		elif (tentativas == 4):
-			bonecoforca1()
-
+			if (tentativas == 0):
+				bonecoForcaCompleto()
+				print("Fim de Jogo")
+				print("A palavra era: ", palavra)
+				categoria = "s"
+			elif (tentativas == 1):
+				bonecoforca4()
+			elif (tentativas == 2):
+				bonecoforca3()
+			elif (tentativas == 3):
+				bonecoforca2()
+			elif (tentativas == 4):
+				bonecoforca1()
+		elif (letrasChutadas in alfabeto) and (letrasChutadas in letrasDigitadas):
+			print("Você já digitou essa letra")
+		else:
+			print("\nDigite uma letra")
 
 
 

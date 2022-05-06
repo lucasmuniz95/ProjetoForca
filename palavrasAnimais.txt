@@ -1,0 +1,8 @@
+cachorro
+gato
+cavalo
+vaca
+galinha
+peixe
+coelho
+papagaio

@@ -1,16 +1,23 @@
 import random
-import numpy as np
+#with open("palavrasFrutas.txt", "r") as palavrasFrutas:
+#	palavrasFrutas = palavrasFrutas.readlines()
+#with open("palavasCores.txt", "r") as palavrasCores:
+#	palavrasCores = palavrasCores.readlines()
+#with open("palavrasAnimais.txt", "r") as palavrasAnimais:
+#	palavrasAnimais = palavrasAnimais.readlines()
+#	print(palavrasAnimais)
 palavrasFrutas = ['abacate', 'abacaxi', 'banana', 'goiaba', 'laranja', 'manga', 'maça', 'melancia', 'pera', 'tangerina', 'uva']
-palavrasCores = ['azul', 'verde', 'vermelho', 'preto', 'amarelo', 'violeta', 'laranja', 'branco', 'Rosa', 'marrom']
+palavrasCores = ['azul', 'verde', 'vermelho', 'preto', 'amarelo', 'violeta', 'laranja', 'branco', 'rosa', 'marrom']
 palavrasAnimais = ['cachorro', 'gato', 'cavalo', 'vaca', 'galinha', 'peixe', 'coelho', 'papagaio']
 tentativas = 5
 letrasDigitadas = []
 letrasErradas = []
 letrasAcertadas = []
 categoria = ""
-alfabeto = list("abcdefghijklmnopqrstuvwxyz")
+alfabeto = list("abcdefghijklmnopqrstuvwxyzáéíóúãõâêîôûç")
 letrasChutadas = ""
 palavra = ""
+
 
 
 def bonecoForcaCompleto():
@@ -215,11 +222,15 @@ while (categoria != "s"):
 			else:
 				print(' _ ', end="")
 		letrasChutadas = input("\n\nDigite a letra que você acha que tem na palavra: ") .lower()
+		if letrasChutadas not in alfabeto:
+			print("Digite uma letra")
+			continue
 		if letrasChutadas in letrasDigitadas:
 			print("Você já digitou essa letra")
 		else:
 			letrasDigitadas.append(letrasChutadas)
 		print("Letras já digitadas: ", letrasDigitadas)
+
 		if (letrasChutadas in alfabeto) and (letrasChutadas in palavra):
 			letrasAcertadas.append(letrasChutadas)
 			print("\nVocê acertou uma letra\n")
@@ -229,8 +240,16 @@ while (categoria != "s"):
 					acertou = False
 			if acertou:
 				print("\nParabéns, você fugiu da forca e ganhou o jogo!!")
-				print("\nA palavra era : ", palavra)
-				categoria = "s"
+				print("\nA palavra é:", palavra)
+				jogarNovamente = input("\nDeseja jogar novamente? (Digite [S] para SIM/Digite [N] para NÃO): ") .lower() .strip()
+				if jogarNovamente == "s":
+					menu()
+					letrasDigitadas = []
+					letrasAcertadas = []
+					break
+				else:
+					print("\nJogo Finalizado!!")
+					categoria = "s"
 		elif (letrasChutadas in alfabeto) and (letrasChutadas not in palavra):
 			print("\nNão tem essa letra na palavra :/")
 			tentativas -= 1
@@ -251,7 +270,7 @@ while (categoria != "s"):
 		elif (letrasChutadas in alfabeto) and (letrasChutadas in letrasDigitadas):
 			print("Você já digitou essa letra")
 		else:
-			print("\nDigite uma letra")
+				print("\nDigite uma letra")
 
 
 

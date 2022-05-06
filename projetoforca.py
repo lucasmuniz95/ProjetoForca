@@ -18,7 +18,34 @@ alfabeto = list("abcdefghijklmnopqrstuvwxyzáéíóúãõâêîôûç")
 letrasChutadas = ""
 palavra = ""
 
-
+def bonecoforcaComemorando():
+		print('''
+		################################
+		##                            ##
+		##                            ##                             
+		##                         ##########
+		##
+		##
+		##
+		##
+		##
+		##                            *****
+		##                         *         *             
+		##                        *           *
+		##                    *    *         *    * 
+		##                      *     *****     *
+		##                        *     *     *   
+		##                            *****
+		##                              *    
+		##                              *      
+		##                              *        
+		##                              *
+		##                            ******
+		##                          *         *
+		##                        *             * 
+		##                      *                 *      
+	
+		''')
 
 def bonecoForcaCompleto():
 	print('''
@@ -211,8 +238,6 @@ while (categoria != "s"):
 	elif (categoria == "Animais"):
 		palavra = (random.choice(palavrasAnimais))
 
-	print(palavra, end="")
-
 
 	while (categoria != "s"):
 		print('\nA palavra é: ', end="")
@@ -239,6 +264,7 @@ while (categoria != "s"):
 				if letra not in letrasAcertadas:
 					acertou = False
 			if acertou:
+				bonecoforcaComemorando()
 				print("\nParabéns, você fugiu da forca e ganhou o jogo!!")
 				print("\nA palavra é:", palavra)
 				jogarNovamente = input("\nDeseja jogar novamente? (Digite [S] para SIM/Digite [N] para NÃO): ") .lower() .strip()

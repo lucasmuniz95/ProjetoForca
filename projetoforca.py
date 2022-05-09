@@ -20,30 +20,30 @@ palavra = ""
 
 def bonecoforcaComemorando():
 		print('''
-		################################
-		##                            ##
-		##                            ##                             
-		##                         ##########
-		##
-		##
-		##
-		##
-		##
-		##                            *****
-		##                         *         *             
-		##                        *           *
-		##                    *    *         *    * 
-		##                      *     *****     *
-		##                        *     *     *   
-		##                            *****
-		##                              *    
-		##                              *      
-		##                              *        
-		##                              *
-		##                            ******
-		##                          *         *
-		##                        *             * 
-		##                      *                 *      
+		      ############
+		    ##           #          
+		  ##             #                                       
+		##               #          
+	  ##                ##
+	##              ##########
+  ##
+##
+  ##
+	##                                                      *****
+	  ##                                                 *         *             
+		##                                              *           *
+	      ##                                         *    *         *    * 
+		    ##                                         *     *****     *
+		      ##                                         *     *     *   
+		        ##                                           *****
+		          ##                                           *    
+		            ##                                         *      
+		              ##                                       *        
+		                ##                                     *
+		                  ##                                 ******
+ 	                        ##                             *         *
+	                          ##                         *             * 
+                         		##                     *                 *      
 	
 		''')
 
@@ -252,6 +252,8 @@ while (categoria != "s"):
 			continue
 		if letrasChutadas in letrasDigitadas:
 			print("Você já digitou essa letra")
+			print("Letras já digitadas: ", letrasDigitadas)
+			continue
 		else:
 			letrasDigitadas.append(letrasChutadas)
 		print("Letras já digitadas: ", letrasDigitadas)
@@ -272,6 +274,7 @@ while (categoria != "s"):
 					menu()
 					letrasDigitadas = []
 					letrasAcertadas = []
+					tentativas = 5
 					break
 				else:
 					print("\nJogo Finalizado!!")
@@ -285,6 +288,16 @@ while (categoria != "s"):
 				print("Fim de Jogo")
 				print("A palavra era: ", palavra)
 				categoria = "s"
+				jogarNovamente = input("\nDeseja jogar novamente? (Digite [S] para SIM/Digite [N] para NÃO): ") .lower() .strip()
+				if jogarNovamente == "s":
+					menu()
+					letrasDigitadas = []
+					letrasAcertadas = []
+					tentativas = 5
+					break
+				else:
+					print("\nJogo Finalizado!!")
+					categoria = "s"
 			elif (tentativas == 1):
 				bonecoforca4()
 			elif (tentativas == 2):
@@ -293,8 +306,6 @@ while (categoria != "s"):
 				bonecoforca2()
 			elif (tentativas == 4):
 				bonecoforca1()
-		elif (letrasChutadas in alfabeto) and (letrasChutadas in letrasDigitadas):
-			print("Você já digitou essa letra")
 		else:
 				print("\nDigite uma letra")
 

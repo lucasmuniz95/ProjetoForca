@@ -202,7 +202,7 @@ def menu():
 	#                                                  #
 	#    Grupo:                                        #
 	#    Daniela Lima                                  #
-	#    Eduargo Gouveia                               #
+	#    Eduardo Gouveia                               #
 	#    Fernanda Mota                                 #
 	#    Jullyana Maciel                               # 
 	#    Larissa Maia                                  #
@@ -243,7 +243,7 @@ while (categoria != "s"):
 		palavra = (random.choice(palavrasAnimais))
 
 
-	while (categoria != "s"):
+	while (palavra != "s"):
 		print('\nA palavra é: ', end="")
 		for letra in palavra:
 			if letra in letrasAcertadas:
@@ -252,7 +252,7 @@ while (categoria != "s"):
 				print(' _ ', end="")
 		letrasChutadas = input("\n\nDigite a letra que você acha que tem na palavra: ") .lower()
 		if letrasChutadas not in alfabeto:
-			print("Digite uma letra")
+			print("Caractere invalido, digite uma letra")
 			continue
 		if letrasChutadas in letrasDigitadas:
 			print("Você já digitou essa letra")
@@ -291,18 +291,25 @@ while (categoria != "s"):
 				bonecoForcaCompleto()
 				print("Fim de Jogo")
 				print("A palavra era: ", palavra)
-				categoria = "s"
-				jogarNovamente = input("\nDeseja jogar novamente? (Digite [S] para SIM/Digite [N] para NÃO): ") .lower() .strip()
-				if jogarNovamente == "s":
-					menu()
-					letrasDigitadas = []
-					letrasAcertadas = []
-					tentativas = 5
-					break
-				else:
-					print("\nJogo Finalizado!!")
-					categoria = "s"
-			elif (tentativas == 1):
+				while True:
+					jogarNovamente = input("\nDeseja jogar novamente? (Digite [S] para SIM/Digite [N] para NÃO): ").lower().strip()
+					if jogarNovamente == "s" or jogarNovamente == "n":
+						if jogarNovamente == "s":
+							menu()
+							letrasDigitadas = []
+							letrasAcertadas = []
+							tentativas = 5
+							palavra = "s"
+							break
+						elif jogarNovamente == "n":
+							print("\nJogo Finalizado!!")
+							palavra = "s"
+							categoria = "s"
+							break
+					else:
+						print("Caractere Invalido, digite ou S ou N")
+						continue
+			if (tentativas == 1):
 				bonecoforca4()
 			elif (tentativas == 2):
 				bonecoforca3()
@@ -310,8 +317,8 @@ while (categoria != "s"):
 				bonecoforca2()
 			elif (tentativas == 4):
 				bonecoforca1()
-		else:
-				print("\nDigite uma letra")
+#			else:
+#				print("\nDigite uma letra")
 
 
 

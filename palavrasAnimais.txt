@@ -1,0 +1,11 @@
+cachorro
+gato
+cavalo
+vaca
+galinha
+peixe
+coelho
+papagaio
+jaguatirica
+sucuri
+beluga

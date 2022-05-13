@@ -1,12 +1,9 @@
 import random
 import os
 
-palavrasFrutas = open("palavrasFrutas.txt", "r").readlines()
-palavrasCores = open("palavrasCores.txt", "r").readlines()
-palavrasAnimais = open("palavrasAnimais.txt", "r").readlines()
-#palavrasFrutas = ['abacate', 'abacaxi', 'banana', 'goiaba', 'laranja', 'manga', 'maça', 'melancia', 'pera', 'tangerina', 'uva']
-#palavrasCores = ['azul', 'verde', 'vermelho', 'preto', 'amarelo', 'violeta', 'laranja', 'branco', 'rosa', 'marrom']
-#palavrasAnimais = ['cachorro', 'gato', 'cavalo', 'vaca', 'galinha', 'peixe', 'coelho', 'papagaio']
+palavrasFrutas = ['abacate', 'abacaxi', 'banana', 'goiaba', 'laranja', 'manga', 'maça', 'melancia', 'pera', 'bergamota', 'uva', 'durian']
+palavrasCores = ['azul', 'verde', 'vermelho', 'preto', 'amarelo', 'violeta', 'laranja', 'branco', 'rosa', 'marrom']
+palavrasAnimais = ['cachorro', 'gato', 'cavalo', 'vaca', 'galinha', 'peixe', 'coelho', 'papagaio', 'jaguatirica', 'sucuri', 'beluga']
 tentativas = 6
 letrasDigitadas = []
 letrasErradas = []
@@ -282,7 +279,7 @@ while (categoria != "s"):
 			print("\nCaractere invalido, digite uma letra")
 			continue
 		if letrasChutadas in letrasDigitadas:
-			print("Você já digitou essa letra\n\n")
+			print("\nEssa letra já foi digitada\n\n")
 			continue
 		else:
 			letrasDigitadas.append(letrasChutadas)

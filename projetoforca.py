@@ -273,6 +273,7 @@ while (categoria != "s"):
 		print("\n\nLetras informadas: ", letrasDigitadas)
 		print("         Corretas: ", letrasAcertadas)
 		print("          Erradas: ", letrasErradas)
+		print("\nCategoria: ", categoria)
 
 		letrasChutadas = input("\n\n\n\nDigite a letra que você acha que tem na palavra: ") .lower()
 		if letrasChutadas not in alfabeto:
@@ -300,7 +301,6 @@ while (categoria != "s"):
 						"\nDeseja jogar novamente? (Digite [S] para SIM/Digite [N] para NÃO): ").lower().strip()
 					if jogarNovamente == "s" or jogarNovamente == "n":
 						if jogarNovamente == "s":
-							del palavra
 							os.system('cls')
 							menu()
 							letrasDigitadas = []
@@ -361,4 +361,3 @@ while (categoria != "s"):
 				bonecoforca1()
 				print("\nVocê ainda tem ", tentativas, "tentativas")
 
-		print("\nCategoria: ", categoria)
